@@ -5,7 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #000;
   color: #fff;
   overflow: hidden;
@@ -28,7 +28,7 @@ body {
   background-color: rgba(17, 17, 17, 0.8);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 70vh;
+  max-height: 80vh;
   overflow-y: auto;
   overflow-x: hidden;
   transition: all 0.3s ease;
@@ -99,6 +99,7 @@ p {
 
 .content.visible {
   opacity: 1;
+  max-height: none;
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
