@@ -5,9 +5,95 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+  <!-- <script type="importmap">
+    {
+      "imports": {      
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+<body>
+  <div id="background"></div>
+
+  <div class="container">
+    <h1>Meta Head Configurator</h1>
+    <div class="section">
+        <button class="toggleButton">Page Title</button>
+        <div class="content hidden">
+            <label for="titleInput">Page Title:</label>
+            <input type="text" id="titleInput" placeholder="Enter page title (e.g., My Awesome Website)">
+            <label class="tips">Tip: Use a concise and descriptive title, max 60 characters.</label>
+        </div>
+    </div>
+    <div class="section">
+        <button class="toggleButton">Description</button>
+        <div class="content hidden">
+            <label for="descriptionInput">Description:</label>
+            <textarea id="descriptionInput" placeholder="Enter description (e.g., This is a website about...)"></textarea>
+            <label class="tips">Tip: Provide a clear and concise description, max 160 characters.</label>
+        </div>
+    </div>
+    <div class="section">
+        <button class="toggleButton">Keywords</button>
+        <div class="content hidden">
+            <label for="keywordsInput">Keywords:</label>
+            <input type="text" id="keywordsInput" placeholder="Enter keywords (e.g., website, awesome, SEO)">
+            <label class="tips">Tip: Include relevant keywords separated by commas.</label>
+        </div>
+    </div>
+    <div class="section">
+        <button class="toggleButton">OG Title</button>
+        <div class="content hidden">
+            <label for="ogTitleInput">OG Title:</label>
+            <input type="text" id="ogTitleInput" placeholder="Enter OG title (e.g., My Awesome Website)">
+            <label class="tips">Tip: Use the same or similar title as the page title.</label>
+        </div>
+    </div>
+    <div class="section">
+        <button class="toggleButton">OG Description</button>
+        <div class="content hidden">
+            <label for="ogDescriptionInput">OG Description:</label>
+            <textarea id="ogDescriptionInput" placeholder="Enter OG description (e.g., This is a website about...)"></textarea>
+            <label class="tips">Tip: Provide a clear and concise description, similar to the page description.</label>
+        </div>
+    </div>
+    <div class="section">
+        <button class="toggleButton">OG Image URL</button>
+        <div class="content hidden">
+            <label for="ogImageInput">OG Image URL:</label>
+            <input type="text" id="ogImageInput" placeholder="Enter OG image URL (e.g., https://example.com/image.jpg)">
+            <label class="tips">Tip: Use a high-quality image that represents the content.</label>
+        </div>
+    </div>
+    <p>Select an emoji to change the page's icon and title:</p>
+    <select id="emojiSelect">
+        <option value="" disabled selected>Select an emoji</option>
+        <option value="😀">😀 Grinning Face</option>
+        <option value="😂">😂 Face with Tears of Joy</option>
+        <option value="😍">😍 Smiling Face with Heart-Eyes</option>
+        <option value="🤔">🤔 Thinking Face</option>
+        <option value="🚀">🚀 Rocket</option>
+        <option value="🎉">🎉 Party Popper</option>
+    </select>
+    <button id="applyButton">Apply</button>
+    <div id="codeContainer" class="hidden">
+        <p>Copy this code to integrate the meta icon in your web:</p>
+        <textarea id="codeToCopy" readonly></textarea>
+        <button id="copyButton">Copy Code</button>
+    </div>
+</div>
+
+
+
+
+</body>
+  <script type="module" src="/main.js"></script>
+  <script type="module" src="/background.js"></script>
 </html>
