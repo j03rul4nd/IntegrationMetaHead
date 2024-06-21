@@ -99,7 +99,6 @@ p {
 
 .content.visible {
   opacity: 1;
-  max-height: 500px;
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
