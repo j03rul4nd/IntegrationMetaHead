@@ -1,5 +1,3 @@
-
-
 // Importar THREE.js
 import * as THREE from "three";
 
@@ -87,8 +85,13 @@ function animate() {
 animate();
 
 // Handle window resize
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+function onWindowResize() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
+  renderer.setSize(width, height);
+}
+
+window.addEventListener('resize', onWindowResize);
+onWindowResize();

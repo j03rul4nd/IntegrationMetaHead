@@ -8,11 +8,12 @@ body {
   min-height: 100vh;
   background-color: #000;
   color: #fff;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,6 +22,8 @@ body {
 }
 
 .container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   text-align: center;
   max-width: 600px;
   width: 100%;
@@ -28,7 +31,6 @@ body {
   background-color: rgba(17, 17, 17, 0.8);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-height: 80vh;
   overflow-y: auto;
   overflow-x: hidden;
   transition: all 0.3s ease;
@@ -104,6 +106,8 @@ p {
   align-items: stretch;
   justify-content: flex-start;
   flex-direction: column;
+  gap: 0.8rem;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
 .hidden {
@@ -126,6 +130,26 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: #0070f3;
+}
+
+/* Checkboxes */
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.enableSection {
+  margin: 0;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkboxDescription {
+  font-size: 1rem;
+  color: #ddd;
 }
 
 /* Tips */
@@ -206,4 +230,14 @@ textarea:focus {
 
 .incomplete {
   border-left: 5px solid #dc3545;
+}
+
+/* Success Message */
+#successMessage {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: none;
 }

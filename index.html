@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Meta Head Configurator</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <!-- <script type="importmap">
@@ -22,8 +22,14 @@
 <body>
   <div id="background"></div>
 
+
+
+
   <div class="container">
     <h1>Meta Head Configurator</h1>
+    <p>Generate customized meta tags for your website by filling out the inputs below. These meta tags help improve SEO and the appearance of your site when shared on social media.</p>
+
+    <!-- Page Title -->
     <div class="section">
         <button class="toggleButton">Page Title</button>
         <div class="content hidden">
@@ -32,6 +38,8 @@
             <label class="tips">Tip: Use a concise and descriptive title, max 60 characters.</label>
         </div>
     </div>
+
+    <!-- Description -->
     <div class="section">
         <button class="toggleButton">Description</button>
         <div class="content hidden">
@@ -40,6 +48,8 @@
             <label class="tips">Tip: Provide a clear and concise description, max 160 characters.</label>
         </div>
     </div>
+
+    <!-- Keywords -->
     <div class="section">
         <button class="toggleButton">Keywords</button>
         <div class="content hidden">
@@ -48,30 +58,69 @@
             <label class="tips">Tip: Include relevant keywords separated by commas.</label>
         </div>
     </div>
+
+    <!-- OG Title -->
     <div class="section">
         <button class="toggleButton">OG Title</button>
         <div class="content hidden">
             <label for="ogTitleInput">OG Title:</label>
             <input type="text" id="ogTitleInput" placeholder="Enter OG title (e.g., My Awesome Website)">
-            <label class="tips">Tip: Use the same or similar title as the page title.</label>
+            <label class="tips">Tip: Use the same or similar title as the page title. This helps with social media sharing.</label>
         </div>
     </div>
+
+    <!-- OG Description -->
     <div class="section">
         <button class="toggleButton">OG Description</button>
         <div class="content hidden">
             <label for="ogDescriptionInput">OG Description:</label>
             <textarea id="ogDescriptionInput" placeholder="Enter OG description (e.g., This is a website about...)"></textarea>
-            <label class="tips">Tip: Provide a clear and concise description, similar to the page description.</label>
+            <label class="tips">Tip: Provide a clear and concise description, similar to the page description. This will appear when your site is shared on social media.</label>
         </div>
     </div>
+
+    <!-- OG Image URL -->
     <div class="section">
         <button class="toggleButton">OG Image URL</button>
         <div class="content hidden">
             <label for="ogImageInput">OG Image URL:</label>
             <input type="text" id="ogImageInput" placeholder="Enter OG image URL (e.g., https://example.com/image.jpg)">
-            <label class="tips">Tip: Use a high-quality image that represents the content.</label>
+            <label class="tips">Tip: Use a high-quality image that represents the content. This image will be shown when your site is shared on social media.</label>
         </div>
     </div>
+
+    <!-- Twitter Card -->
+    <div class="section">
+        <button class="toggleButton">Twitter Card</button>
+        <div class="content hidden">
+            <div class="checkboxContainer">
+                <input type="checkbox" id="enableTwitter" class="enableSection" checked>
+                <label class="checkboxDescription" for="enableTwitter">Include Twitter Card meta tags in your page's head.</label>
+            </div>
+            <label for="twitterCardInput">Twitter Card:</label>
+            <select id="twitterCardInput">
+                <option value="summary">Summary</option>
+                <option value="summary_large_image">Summary with Large Image</option>
+            </select>
+            <label class="tips">Tip: Choose the type of card to be used when your content is shared on Twitter.</label>
+        </div>
+    </div>
+
+    <!-- Twitter Site -->
+    <div class="section">
+        <button class="toggleButton">Twitter Site</button>
+        <div class="content hidden">
+            <div class="checkboxContainer">
+                <input type="checkbox" id="enableTwitterSite" class="enableSection" checked>
+                <label class="checkboxDescription" for="enableTwitterSite">Include your Twitter handle in the Twitter Card meta tags.</label>
+            </div>
+            <label for="twitterSiteInput">Twitter Site:</label>
+            <input type="text" id="twitterSiteInput" placeholder="@YourTwitterHandle">
+            <label class="tips">Tip: Provide your Twitter handle to associate with the Twitter card.</label>
+        </div>
+    </div>
+
+    <!-- Favicon Emoji -->
     <p>Select an emoji to change the page's icon and title:</p>
     <select id="emojiSelect">
         <option value="" disabled selected>Select an emoji</option>
@@ -83,13 +132,19 @@
         <option value="🎉">🎉 Party Popper</option>
     </select>
     <button id="applyButton">Apply</button>
+
+    <!-- Code Container -->
     <div id="codeContainer" class="hidden">
         <p>Copy this code to integrate the meta icon in your web:</p>
         <textarea id="codeToCopy" readonly></textarea>
         <button id="copyButton">Copy Code</button>
     </div>
-</div>
 
+    <!-- Success Message -->
+    <div id="successMessage" class="hidden">
+        <p>Meta tags generated successfully! Copy the code above and paste it into your HTML's head section.</p>
+    </div>
+  </div>
 
 
 
