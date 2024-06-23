@@ -239,3 +239,49 @@ function changeEmoji() {
 }
 
 setInterval(changeEmoji, 1000);
+
+
+const placeholders = [
+  "Enter a brief description of your website",
+  "Describe the purpose of your site",
+  "Mention the key features of your site",
+  "What makes your site unique?",
+  "Who is your target audience?",
+  "What services do you offer?",
+  "Highlight your recent projects",
+  "Share your company's mission",
+  "Provide an overview of your products",
+  "What problem does your site solve?",
+  "Describe your team and their expertise",
+  "What are your company's core values?",
+  "Share a customer testimonial",
+  "What sets your business apart?",
+  "Describe your latest updates",
+  "Mention any awards or recognitions",
+  "What are your future goals?",
+  "Explain your business model",
+  "What benefits do you offer your customers?",
+  "Give a brief history of your company"
+];
+
+
+let placeholderIndex = 0;
+const siteDescriptionInput = document.getElementById('siteDescriptionInput');
+let charIndex = 0;
+
+function typePlaceholder() {
+  const currentPlaceholder = placeholders[placeholderIndex];
+  if (charIndex < currentPlaceholder.length) {
+    siteDescriptionInput.setAttribute('placeholder', currentPlaceholder.substring(0, charIndex + 1));
+    charIndex++;
+    setTimeout(typePlaceholder, 100); // Ajusta la velocidad de escritura aquí
+  } else {
+    setTimeout(() => {
+      charIndex = 0;
+      placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+      typePlaceholder();
+    }, 2000); // Pausa después de terminar de escribir el placeholder
+  }
+}
+
+typePlaceholder(); // Iniciar la animación

@@ -186,13 +186,23 @@ button:hover {
 }
 
 #codeContainer {
+  display: flex;
   margin-top: 20px;
   text-align: left;
   transition: all 0.3s ease;
+  flex-direction: column;
+  align-items: center;
+}
+small{
+  color: #ffffff91;
 }
 
 #codeContainer p {
   margin-bottom: 10px;
+}
+
+#codeContainer.hidden{
+  display: none;
 }
 
 textarea {
@@ -293,4 +303,17 @@ textarea:focus {
   input, textarea, select{
     width: calc(100% - 40px);
   }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.placeholder-wrapper {
+  display: inline-block;
+  border-right: 2px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end) infinite;
 }
