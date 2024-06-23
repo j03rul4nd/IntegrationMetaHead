@@ -1,16 +1,15 @@
 document.getElementById('applyButton').addEventListener('click', () => {
-  const emoji = document.getElementById('emojiSelect').value;
   const title = document.getElementById('titleInput').value;
   const description = document.getElementById('descriptionInput').value;
   const keywords = document.getElementById('keywordsInput').value;
   const ogTitle = document.getElementById('ogTitleInput').value;
   const ogDescription = document.getElementById('ogDescriptionInput').value;
   const ogImage = document.getElementById('ogImageInput').value;
+  const faviconUrl = document.getElementById('faviconUrl').value;
   const twitterCardEnabled = document.getElementById('enableTwitter').checked;
   const twitterCard = twitterCardEnabled ? document.getElementById('twitterCardInput').value : '';
   const twitterSiteEnabled = document.getElementById('enableTwitterSite').checked;
   const twitterSite = twitterSiteEnabled ? document.getElementById('twitterSiteInput').value : '';
-  const selectElement = document.getElementById('emojiSelect');
 
   const sections = document.querySelectorAll('.section');
   let allComplete = true;
@@ -29,15 +28,15 @@ document.getElementById('applyButton').addEventListener('click', () => {
     }
   });
 
-  if (emoji && allComplete) {
-    updateMetaTags(emoji, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite);
-    showCodeContainer(emoji, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite);
-    selectElement.classList.remove('shake');
+  if (faviconUrl && allComplete) {
+    updateMetaTags(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite);
+    showCodeContainer(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite);
+    document.getElementById('faviconUrl').classList.remove('shake');
     showSuccessMessage();
   } else {
-    selectElement.classList.add('shake');
+    document.getElementById('faviconUrl').classList.add('shake');
     setTimeout(() => {
-      selectElement.classList.remove('shake');
+      document.getElementById('faviconUrl').classList.remove('shake');
     }, 500);
 
     document.querySelector('.incomplete').scrollIntoView({ behavior: 'smooth' });
@@ -65,7 +64,7 @@ document.querySelectorAll('.toggleButton').forEach(button => {
   });
 });
 
-function updateMetaTags(emoji, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite) {
+function updateMetaTags(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite) {
   const head = document.head;
 
   let favicon = document.querySelector('link[rel="icon"]');
@@ -74,7 +73,7 @@ function updateMetaTags(emoji, title, description, keywords, ogTitle, ogDescript
     favicon.rel = 'icon';
     head.appendChild(favicon);
   }
-  favicon.href = `data:image/png;base64,${convertEmojiToBase64(emoji)}`;
+  favicon.href = faviconUrl;
 
   document.title = title;
 
@@ -97,18 +96,12 @@ function updateOrCreateMetaTag(head, attribute, attributeName, content) {
   metaTag.content = content;
 }
 
-function convertEmojiToBase64(emoji) {
-  const placeholderBase64 = 'iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAACoWJZaAAAAD0lEQVR42mJ89evXfwYAAwAB+gTkMLYAAAAASUVORK5CYII=';
-  return placeholderBase64;
-}
-
-function showCodeContainer(emoji, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite) {
+function showCodeContainer(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite) {
   const codeContainer = document.getElementById('codeContainer');
   const codeToCopy = document.getElementById('codeToCopy');
-  const base64Image = convertEmojiToBase64(emoji);
 
   let code = `
-      <link rel="icon" href="data:image/png;base64,${base64Image}">
+      <link rel="icon" href="${faviconUrl}">
       <title>${title}</title>
       <meta name="description" content="${description}">
       <meta name="keywords" content="${keywords}">

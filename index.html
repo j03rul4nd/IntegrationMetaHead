@@ -120,17 +120,17 @@
         </div>
     </div>
 
-    <!-- Favicon Emoji -->
-    <p>Select an emoji to change the page's icon and title:</p>
-    <select id="emojiSelect">
-        <option value="" disabled selected>Select an emoji</option>
-        <option value="😀">😀 Grinning Face</option>
-        <option value="😂">😂 Face with Tears of Joy</option>
-        <option value="😍">😍 Smiling Face with Heart-Eyes</option>
-        <option value="🤔">🤔 Thinking Face</option>
-        <option value="🚀">🚀 Rocket</option>
-        <option value="🎉">🎉 Party Popper</option>
-    </select>
+    <!-- Favicon URL -->
+    <div class="section">
+        <button class="toggleButton">Favicon URL</button>
+        <div class="content hidden">
+            <label for="faviconUrl">Favicon URL:</label>
+            <input type="text" id="faviconUrl" placeholder="Enter favicon URL (e.g., https://example.com/favicon.png)">
+            <label class="tips">Tip: Provide a URL for the favicon image to be used for your website.</label>
+        </div>
+    </div>
+
+    <!-- Apply Button -->
     <button id="applyButton">Apply</button>
 
     <!-- Code Container -->
@@ -144,7 +144,7 @@
     <div id="successMessage" class="hidden">
         <p>Meta tags generated successfully! Copy the code above and paste it into your HTML's head section.</p>
     </div>
-  </div>
+</div>
 
 
 
