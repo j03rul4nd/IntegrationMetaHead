@@ -224,3 +224,18 @@ toastr.options = {
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
 };
+
+const emojis = ["😀", "🚀", "🎉", "🌟", "🔥", "💻", "📱", "💡", "🎨", "🔧", "⚙️", "🖥️", "🌐", "🔍", "📈"];
+let emojiIndex = 0;
+const emojiElement = document.querySelector('.emojiHeader');
+
+function changeEmoji() {
+    emojiElement.style.opacity = 0; // Start fade out
+    setTimeout(() => {
+        emojiIndex = (emojiIndex + 1) % emojis.length;
+        emojiElement.textContent = emojis[emojiIndex];
+        emojiElement.style.opacity = 1; // Start fade in
+    }, 500); // Duration of fade out
+}
+
+setInterval(changeEmoji, 1000);
