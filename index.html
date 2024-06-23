@@ -15,10 +15,13 @@
       }
     }
   </script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
-    <script>
-      hljs.initHighlightingOnLoad();
-    </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
 <body>
   <div id="background"></div>
 
@@ -33,16 +36,26 @@
     <div class="section">
         <button class="toggleButton">Quick Configurator</button>
         <div class="content hidden">
-            <label for="siteNameInput">What is the name of your website?</label>
+            <label for="siteNameInput">Website Name:</label>
             <input type="text" id="siteNameInput" placeholder="Enter your website name (e.g., My Awesome Website)">
-            <label for="siteDescriptionInput">Describe your website in one or two sentences:</label>
+            <small>Enter the name of your website. This will be used for the meta title and Open Graph title.</small>
+            
+            <label for="siteDescriptionInput">Website Description:</label>
             <textarea id="siteDescriptionInput" placeholder="Enter a brief description of your website"></textarea>
-            <label for="siteKeywordsInput">List some keywords that describe your website (separated by commas):</label>
+            <small>Provide a brief description of your website. This will be used for the meta description and Open Graph description.</small>
+            
+            <label for="siteKeywordsInput">Keywords:</label>
             <input type="text" id="siteKeywordsInput" placeholder="Enter keywords (e.g., website, awesome, SEO)">
-            <label for="siteImageUrlInput">Provide a URL to an image that represents your website:</label>
+            <small>List some keywords that describe your website, separated by commas.</small>
+            
+            <label for="siteImageUrlInput">Image URL:</label>
             <input type="text" id="siteImageUrlInput" placeholder="Enter image URL (e.g., https://example.com/image.jpg)">
-            <label for="siteFaviconUrlInput">Provide a URL to your website's favicon:</label>
+            <small>Provide a URL to an image that represents your website. This will be used for the Open Graph image.</small>
+            
+            <label for="siteFaviconUrlInput">Favicon URL:</label>
             <input type="text" id="siteFaviconUrlInput" placeholder="Enter favicon URL (e.g., https://example.com/favicon.png)">
+            <small>Provide a URL to your website's favicon.</small>
+            
             <button id="generateMetaButton">Generate Meta Tags</button>
         </div>
     </div>
@@ -53,7 +66,7 @@
         <div class="content hidden">
             <label for="titleInput">Page Title:</label>
             <input type="text" id="titleInput" placeholder="Enter page title (e.g., My Awesome Website)">
-            <label class="tips">Tip: Use a concise and descriptive title, max 60 characters.</label>
+            <small>Tip: Use a concise and descriptive title, max 60 characters.</small>
         </div>
     </div>
 
@@ -62,7 +75,7 @@
         <div class="content hidden">
             <label for="descriptionInput">Description:</label>
             <textarea id="descriptionInput" placeholder="Enter description (e.g., This is a website about...)"></textarea>
-            <label class="tips">Tip: Provide a clear and concise description, max 160 characters.</label>
+            <small>Tip: Provide a clear and concise description, max 160 characters.</small>
         </div>
     </div>
 
@@ -71,7 +84,7 @@
         <div class="content hidden">
             <label for="keywordsInput">Keywords:</label>
             <input type="text" id="keywordsInput" placeholder="Enter keywords (e.g., website, awesome, SEO)">
-            <label class="tips">Tip: Include relevant keywords separated by commas, max 10 keywords.</label>
+            <small>Tip: Include relevant keywords separated by commas, max 10 keywords.</small>
         </div>
     </div>
 
@@ -80,7 +93,7 @@
         <div class="content hidden">
             <label for="ogTitleInput">OG Title:</label>
             <input type="text" id="ogTitleInput" placeholder="Enter OG title (e.g., My Awesome Website)">
-            <label class="tips">Tip: Use the same or similar title as the page title. This helps with social media sharing.</label>
+            <small>Tip: Use the same or similar title as the page title. This helps with social media sharing.</small>
         </div>
     </div>
 
@@ -89,7 +102,7 @@
         <div class="content hidden">
             <label for="ogDescriptionInput">OG Description:</label>
             <textarea id="ogDescriptionInput" placeholder="Enter OG description (e.g., This is a website about...)"></textarea>
-            <label class="tips">Tip: Provide a clear and concise description, similar to the page description. This will appear when your site is shared on social media.</label>
+            <small>Tip: Provide a clear and concise description, similar to the page description. This will appear when your site is shared on social media.</small>
         </div>
     </div>
 
@@ -98,7 +111,7 @@
         <div class="content hidden">
             <label for="ogImageInput">OG Image URL:</label>
             <input type="text" id="ogImageInput" placeholder="Enter OG image URL (e.g., https://example.com/image.jpg)">
-            <label class="tips">Tip: Use a high-quality image that represents the content. This image will be shown when your site is shared on social media.</label>
+            <small>Tip: Use a high-quality image that represents the content. This image will be shown when your site is shared on social media.</small>
         </div>
     </div>
 
@@ -114,7 +127,7 @@
                 <option value="summary">Summary</option>
                 <option value="summary_large_image">Summary with Large Image</option>
             </select>
-            <label class="tips">Tip: Choose the type of card to be used when your content is shared on Twitter.</label>
+            <small>Tip: Choose the type of card to be used when your content is shared on Twitter.</small>
         </div>
     </div>
 
@@ -127,7 +140,7 @@
             </div>
             <label for="twitterSiteInput">Twitter Site:</label>
             <input type="text" id="twitterSiteInput" placeholder="@YourTwitterHandle">
-            <label class="tips">Tip: Provide your Twitter handle to associate with the Twitter card.</label>
+            <small>Tip: Provide your Twitter handle to associate with the Twitter card.</small>
         </div>
     </div>
 
@@ -136,7 +149,7 @@
         <div class="content hidden">
             <label for="faviconUrl">Favicon URL:</label>
             <input type="text" id="faviconUrl" placeholder="Enter favicon URL (e.g., https://example.com/favicon.png)">
-            <label class="tips">Tip: Provide a URL for the favicon image to be used for your website.</label>
+            <small>Tip: Provide a URL for the favicon image to be used for your website.</small>
         </div>
     </div>
 
@@ -145,19 +158,19 @@
         <div class="content hidden">
             <label for="robotsInput">Robots:</label>
             <input type="text" id="robotsInput" placeholder="index, follow" value="index, follow">
-            <label class="tips">Tip: Control the behavior of search engine crawling and indexing. Common values are "index, follow" (default), "noindex, nofollow" (to exclude from search engines).</label>
+            <small>Tip: Control the behavior of search engine crawling and indexing. Common values are "index, follow" (default), "noindex, nofollow" (to exclude from search engines).</small>
 
             <label for="authorInput">Author:</label>
             <input type="text" id="authorInput" placeholder="Enter author name (e.g., John Doe)">
-            <label class="tips">Tip: Provide the name of the content author. This is useful for content attribution.</label>
+            <small>Tip: Provide the name of the content author. This is useful for content attribution.</small>
 
             <label for="viewportInput">Viewport:</label>
             <input type="text" id="viewportInput" placeholder="width=device-width, initial-scale=1.0" value="width=device-width, initial-scale=1.0">
-            <label class="tips">Tip: Ensure your site is mobile-friendly. A common value is "width=device-width, initial-scale=1.0".</label>
+            <small>Tip: Ensure your site is mobile-friendly. A common value is "width=device-width, initial-scale=1.0".</small>
 
             <label for="charsetInput">Charset:</label>
             <input type="text" id="charsetInput" placeholder="UTF-8" value="UTF-8">
-            <label class="tips">Tip: Specify the character encoding for your document. The recommended value is "UTF-8".</label>
+            <small>Tip: Specify the character encoding for your document. The recommended value is "UTF-8".</small>
         </div>
     </div>
 
@@ -166,7 +179,7 @@
 
     <!-- Code Container -->
     <div id="codeContainer" class="hidden">
-        <p>Copy this code to integrate the meta icon in your web:</p>
+        <p>Copy this code to integrate the meta tags in your web:</p>
         <textarea id="codeToCopy" readonly></textarea>
         <button id="copyButton">Copy Code</button>
     </div>

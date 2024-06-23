@@ -1,19 +1,19 @@
 document.getElementById('applyButton').addEventListener('click', () => {
-  const title = document.getElementById('titleInput').value;
-  const description = document.getElementById('descriptionInput').value;
-  const keywords = document.getElementById('keywordsInput').value;
-  const ogTitle = document.getElementById('ogTitleInput').value;
-  const ogDescription = document.getElementById('ogDescriptionInput').value;
-  const ogImage = document.getElementById('ogImageInput').value;
-  const faviconUrl = document.getElementById('faviconUrl').value;
+  const title = document.getElementById('titleInput').value.trim();
+  const description = document.getElementById('descriptionInput').value.trim();
+  const keywords = document.getElementById('keywordsInput').value.trim();
+  const ogTitle = document.getElementById('ogTitleInput').value.trim();
+  const ogDescription = document.getElementById('ogDescriptionInput').value.trim();
+  const ogImage = document.getElementById('ogImageInput').value.trim();
+  const faviconUrl = document.getElementById('faviconUrl').value.trim();
   const twitterCardEnabled = document.getElementById('enableTwitter').checked;
   const twitterCard = twitterCardEnabled ? document.getElementById('twitterCardInput').value : '';
   const twitterSiteEnabled = document.getElementById('enableTwitterSite').checked;
-  const twitterSite = twitterSiteEnabled ? document.getElementById('twitterSiteInput').value : '';
-  const robots = document.getElementById('robotsInput').value;
-  const author = document.getElementById('authorInput').value;
-  const viewport = document.getElementById('viewportInput').value;
-  const charset = document.getElementById('charsetInput').value;
+  const twitterSite = twitterSiteEnabled ? document.getElementById('twitterSiteInput').value.trim() : '';
+  const robots = document.getElementById('robotsInput').value.trim();
+  const author = document.getElementById('authorInput').value.trim();
+  const viewport = document.getElementById('viewportInput').value.trim();
+  const charset = document.getElementById('charsetInput').value.trim();
 
   const sections = document.querySelectorAll('.section');
   let allComplete = true;
@@ -43,16 +43,19 @@ document.getElementById('applyButton').addEventListener('click', () => {
       document.getElementById('faviconUrl').classList.remove('shake');
     }, 500);
 
-    document.querySelector('.incomplete').scrollIntoView({ behavior: 'smooth' });
+    const incompleteSection = document.querySelector('.incomplete');
+    if (incompleteSection) {
+      incompleteSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 });
 
 document.getElementById('generateMetaButton').addEventListener('click', () => {
-  const siteName = document.getElementById('siteNameInput').value;
-  const siteDescription = document.getElementById('siteDescriptionInput').value;
-  const siteKeywords = document.getElementById('siteKeywordsInput').value;
-  const siteImageUrl = document.getElementById('siteImageUrlInput').value;
-  const siteFaviconUrl = document.getElementById('siteFaviconUrlInput').value;
+  const siteName = document.getElementById('siteNameInput').value.trim();
+  const siteDescription = document.getElementById('siteDescriptionInput').value.trim();
+  const siteKeywords = document.getElementById('siteKeywordsInput').value.trim();
+  const siteImageUrl = document.getElementById('siteImageUrlInput').value.trim();
+  const siteFaviconUrl = document.getElementById('siteFaviconUrlInput').value.trim();
 
   document.getElementById('titleInput').value = siteName;
   document.getElementById('descriptionInput').value = siteDescription;
@@ -198,5 +201,26 @@ document.getElementById('copyButton').addEventListener('click', () => {
   const codeToCopy = document.getElementById('codeToCopy');
   codeToCopy.select();
   document.execCommand('copy');
-  alert('Code copied to clipboard!');
+  toastr.info('Code copied to clipboard!', 'Info');
+  // toastr.info('This is an informational message.', 'Info');
 });
+
+
+// Configuración opcional
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
