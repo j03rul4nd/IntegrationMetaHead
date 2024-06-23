@@ -2,19 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link id="dynamic-favicon" rel="icon" type="image/png" href="/squinting.png">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meta Head Configurator</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <!-- <script type="importmap">
-    {
-      "imports": {      
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-      }
-    }
-  </script> -->
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -24,9 +18,6 @@
 
 <body>
   <div id="background"></div>
-
-
-
 
   <div class="container">
     <div class="headerContent">
@@ -64,7 +55,7 @@
     </div>
 
     <p>Manual Configurator</p>
-    
+
     <!-- Manual Configuration -->
     <div class="section">
         <button class="toggleButton">Page Title</button>
@@ -180,7 +171,20 @@
     </div>
 
     <!-- Apply Button -->
-    <button id="applyButton">Apply</button>
+    <div class="btnsectionapply">
+      <button id="applyButton">
+        
+        <div class="imgIcon">
+  
+        </div>
+  
+        <div class="applyText">
+          Apply
+        </div>
+  
+      </button>
+    </div>
+
 
     <!-- Code Container -->
     <div id="codeContainer" class="hidden">

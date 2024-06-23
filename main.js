@@ -285,3 +285,24 @@ function typePlaceholder() {
 }
 
 typePlaceholder(); // Iniciar la animación
+
+
+var faviconImages = [
+  'crying.png',
+  'happy.png',
+  'smiling.png',
+  'squinting.png',
+  'clouds.png',
+  'pouting.png',
+  'confounded.png',
+];
+
+var currentIndex = 0;
+
+function changeFavicon() {
+  var favicon = document.getElementById('dynamic-favicon');
+  favicon.setAttribute('href', faviconImages[currentIndex]);
+  currentIndex = (currentIndex + 1) % faviconImages.length;
+}
+
+setInterval(changeFavicon, 1000); // Cambia cada segundo (1000 ms)

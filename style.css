@@ -317,3 +317,26 @@ textarea:focus {
   overflow: hidden;
   animation: typing 3.5s steps(40, end) infinite;
 }
+
+.imgIcon {
+  width: 24px;
+  height: 24px;
+  background-image: url('/happy.png');
+  background-size: cover;
+  background-position: center;
+}
+#applyButton {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.btnsectionapply {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
