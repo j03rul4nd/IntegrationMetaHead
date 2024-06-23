@@ -263,6 +263,26 @@ textarea:focus {
 }
 
 .headerContent h1{
+  min-width: 10%;
+  margin-bottom: 1rem;
+
   display: inline;
 
+}
+
+@media (max-width: 600px) {
+  .emojiHeader {
+      margin-top: 1rem;
+      width: 100%;
+  }
+  .headerContent {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .headerContent h1{
+    min-width: 100%;
+    margin-bottom: 1rem;
+    display: inline;
+  
+  }
 }
