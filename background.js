@@ -91,6 +91,13 @@ function onWindowResize() {
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
   renderer.setSize(width, height);
+  
+  // Adjust plane size based on aspect ratio
+  if (camera.aspect > 1) {
+    plane.scale.set(camera.aspect, 1, 1);
+  } else {
+    plane.scale.set(1, 1 / camera.aspect, 1);
+  }
 }
 
 window.addEventListener('resize', onWindowResize);
