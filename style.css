@@ -333,10 +333,18 @@ textarea:focus {
   justify-content: center;
   flex-wrap: nowrap;
 }
+.sectionManual,
 .btnsectionapply {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.sectionManual{
+  gap: 5px;
+}
+
+.advanced{
+  background-image: url('/smiling.png');
 }
