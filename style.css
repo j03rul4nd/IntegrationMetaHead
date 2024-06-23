@@ -385,6 +385,7 @@ textarea:focus {
 }
 
 .btnShare {
+
   display: flex;
   background: #00000021;
   background: rgb(255 255 255 / 17%);
@@ -399,6 +400,7 @@ textarea:focus {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
   
 }
 .IconToLink {

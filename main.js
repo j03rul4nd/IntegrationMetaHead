@@ -306,3 +306,21 @@ function changeFavicon() {
 }
 
 setInterval(changeFavicon, 1000); // Cambia cada segundo (1000 ms)
+
+
+document.getElementById('reshareweb').addEventListener('click', function() {
+  if (navigator.share) {
+      navigator.share({
+          title: 'Meta Head Configurator',
+          text: 'Generate customized meta tags for your website by filling out the inputs below. These meta tags help improve SEO and the appearance of your site when shared on social media.',
+          url: 'https://integrationmetahead.onrender.com/'
+      }).then(() => {
+          console.log('¡Enlace compartido exitosamente!');
+      }).catch((error) => {
+          console.error('Error al compartir:', error);
+      });
+  } else {
+      // Fallback si la API de Web Share no es soportada
+      alert('Sharing functionality is not supported in this browser.');
+  }
+});
