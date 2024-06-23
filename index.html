@@ -29,7 +29,25 @@
     <h1>Meta Head Configurator</h1>
     <p>Generate customized meta tags for your website by filling out the inputs below. These meta tags help improve SEO and the appearance of your site when shared on social media.</p>
 
-    <!-- Page Title -->
+    <!-- Quick Configurator -->
+    <div class="section">
+        <button class="toggleButton">Quick Configurator</button>
+        <div class="content hidden">
+            <label for="siteNameInput">What is the name of your website?</label>
+            <input type="text" id="siteNameInput" placeholder="Enter your website name (e.g., My Awesome Website)">
+            <label for="siteDescriptionInput">Describe your website in one or two sentences:</label>
+            <textarea id="siteDescriptionInput" placeholder="Enter a brief description of your website"></textarea>
+            <label for="siteKeywordsInput">List some keywords that describe your website (separated by commas):</label>
+            <input type="text" id="siteKeywordsInput" placeholder="Enter keywords (e.g., website, awesome, SEO)">
+            <label for="siteImageUrlInput">Provide a URL to an image that represents your website:</label>
+            <input type="text" id="siteImageUrlInput" placeholder="Enter image URL (e.g., https://example.com/image.jpg)">
+            <label for="siteFaviconUrlInput">Provide a URL to your website's favicon:</label>
+            <input type="text" id="siteFaviconUrlInput" placeholder="Enter favicon URL (e.g., https://example.com/favicon.png)">
+            <button id="generateMetaButton">Generate Meta Tags</button>
+        </div>
+    </div>
+
+    <!-- Manual Configuration -->
     <div class="section">
         <button class="toggleButton">Page Title</button>
         <div class="content hidden">
@@ -39,7 +57,6 @@
         </div>
     </div>
 
-    <!-- Description -->
     <div class="section">
         <button class="toggleButton">Description</button>
         <div class="content hidden">
@@ -49,17 +66,15 @@
         </div>
     </div>
 
-    <!-- Keywords -->
     <div class="section">
         <button class="toggleButton">Keywords</button>
         <div class="content hidden">
             <label for="keywordsInput">Keywords:</label>
             <input type="text" id="keywordsInput" placeholder="Enter keywords (e.g., website, awesome, SEO)">
-            <label class="tips">Tip: Include relevant keywords separated by commas.</label>
+            <label class="tips">Tip: Include relevant keywords separated by commas, max 10 keywords.</label>
         </div>
     </div>
 
-    <!-- OG Title -->
     <div class="section">
         <button class="toggleButton">OG Title</button>
         <div class="content hidden">
@@ -69,7 +84,6 @@
         </div>
     </div>
 
-    <!-- OG Description -->
     <div class="section">
         <button class="toggleButton">OG Description</button>
         <div class="content hidden">
@@ -79,7 +93,6 @@
         </div>
     </div>
 
-    <!-- OG Image URL -->
     <div class="section">
         <button class="toggleButton">OG Image URL</button>
         <div class="content hidden">
@@ -89,7 +102,6 @@
         </div>
     </div>
 
-    <!-- Twitter Card -->
     <div class="section">
         <button class="toggleButton">Twitter Card</button>
         <div class="content hidden">
@@ -106,7 +118,6 @@
         </div>
     </div>
 
-    <!-- Twitter Site -->
     <div class="section">
         <button class="toggleButton">Twitter Site</button>
         <div class="content hidden">
@@ -120,13 +131,33 @@
         </div>
     </div>
 
-    <!-- Favicon URL -->
     <div class="section">
         <button class="toggleButton">Favicon URL</button>
         <div class="content hidden">
             <label for="faviconUrl">Favicon URL:</label>
             <input type="text" id="faviconUrl" placeholder="Enter favicon URL (e.g., https://example.com/favicon.png)">
             <label class="tips">Tip: Provide a URL for the favicon image to be used for your website.</label>
+        </div>
+    </div>
+
+    <div class="section">
+        <button class="toggleButton">Additional Meta Tags</button>
+        <div class="content hidden">
+            <label for="robotsInput">Robots:</label>
+            <input type="text" id="robotsInput" placeholder="index, follow" value="index, follow">
+            <label class="tips">Tip: Control the behavior of search engine crawling and indexing. Common values are "index, follow" (default), "noindex, nofollow" (to exclude from search engines).</label>
+
+            <label for="authorInput">Author:</label>
+            <input type="text" id="authorInput" placeholder="Enter author name (e.g., John Doe)">
+            <label class="tips">Tip: Provide the name of the content author. This is useful for content attribution.</label>
+
+            <label for="viewportInput">Viewport:</label>
+            <input type="text" id="viewportInput" placeholder="width=device-width, initial-scale=1.0" value="width=device-width, initial-scale=1.0">
+            <label class="tips">Tip: Ensure your site is mobile-friendly. A common value is "width=device-width, initial-scale=1.0".</label>
+
+            <label for="charsetInput">Charset:</label>
+            <input type="text" id="charsetInput" placeholder="UTF-8" value="UTF-8">
+            <label class="tips">Tip: Specify the character encoding for your document. The recommended value is "UTF-8".</label>
         </div>
     </div>
 
@@ -145,6 +176,9 @@
         <p>Meta tags generated successfully! Copy the code above and paste it into your HTML's head section.</p>
     </div>
 </div>
+
+
+
 
 
 

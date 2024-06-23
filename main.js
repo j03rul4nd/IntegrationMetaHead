@@ -10,6 +10,10 @@ document.getElementById('applyButton').addEventListener('click', () => {
   const twitterCard = twitterCardEnabled ? document.getElementById('twitterCardInput').value : '';
   const twitterSiteEnabled = document.getElementById('enableTwitterSite').checked;
   const twitterSite = twitterSiteEnabled ? document.getElementById('twitterSiteInput').value : '';
+  const robots = document.getElementById('robotsInput').value;
+  const author = document.getElementById('authorInput').value;
+  const viewport = document.getElementById('viewportInput').value;
+  const charset = document.getElementById('charsetInput').value;
 
   const sections = document.querySelectorAll('.section');
   let allComplete = true;
@@ -29,8 +33,8 @@ document.getElementById('applyButton').addEventListener('click', () => {
   });
 
   if (faviconUrl && allComplete) {
-    updateMetaTags(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite);
-    showCodeContainer(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite);
+    updateMetaTags(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite, robots, author, viewport, charset);
+    showCodeContainer(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite, robots, author, viewport, charset);
     document.getElementById('faviconUrl').classList.remove('shake');
     showSuccessMessage();
   } else {
@@ -41,6 +45,24 @@ document.getElementById('applyButton').addEventListener('click', () => {
 
     document.querySelector('.incomplete').scrollIntoView({ behavior: 'smooth' });
   }
+});
+
+document.getElementById('generateMetaButton').addEventListener('click', () => {
+  const siteName = document.getElementById('siteNameInput').value;
+  const siteDescription = document.getElementById('siteDescriptionInput').value;
+  const siteKeywords = document.getElementById('siteKeywordsInput').value;
+  const siteImageUrl = document.getElementById('siteImageUrlInput').value;
+  const siteFaviconUrl = document.getElementById('siteFaviconUrlInput').value;
+
+  document.getElementById('titleInput').value = siteName;
+  document.getElementById('descriptionInput').value = siteDescription;
+  document.getElementById('keywordsInput').value = siteKeywords;
+  document.getElementById('ogTitleInput').value = siteName;
+  document.getElementById('ogDescriptionInput').value = siteDescription;
+  document.getElementById('ogImageInput').value = siteImageUrl;
+  document.getElementById('faviconUrl').value = siteFaviconUrl;
+
+  document.getElementById('applyButton').click();
 });
 
 document.querySelectorAll('.toggleButton').forEach(button => {
@@ -64,7 +86,7 @@ document.querySelectorAll('.toggleButton').forEach(button => {
   });
 });
 
-function updateMetaTags(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite) {
+function updateMetaTags(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite, robots, author, viewport, charset) {
   const head = document.head;
 
   let favicon = document.querySelector('link[rel="icon"]');
@@ -84,6 +106,18 @@ function updateMetaTags(faviconUrl, title, description, keywords, ogTitle, ogDes
   updateOrCreateMetaTag(head, 'property', 'og:image', ogImage);
   if (twitterCard) updateOrCreateMetaTag(head, 'name', 'twitter:card', twitterCard);
   if (twitterSite) updateOrCreateMetaTag(head, 'name', 'twitter:site', twitterSite);
+  if (robots) updateOrCreateMetaTag(head, 'name', 'robots', robots);
+  if (author) updateOrCreateMetaTag(head, 'name', 'author', author);
+  if (viewport) updateOrCreateMetaTag(head, 'name', 'viewport', viewport);
+  if (charset) {
+    let charsetTag = document.querySelector('meta[charset]');
+    if (!charsetTag) {
+      charsetTag = document.createElement('meta');
+      charsetTag.setAttribute('charset', charset);
+      head.appendChild(charsetTag);
+    }
+    charsetTag.setAttribute('charset', charset);
+  }
 }
 
 function updateOrCreateMetaTag(head, attribute, attributeName, content) {
@@ -96,7 +130,7 @@ function updateOrCreateMetaTag(head, attribute, attributeName, content) {
   metaTag.content = content;
 }
 
-function showCodeContainer(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite) {
+function showCodeContainer(faviconUrl, title, description, keywords, ogTitle, ogDescription, ogImage, twitterCard, twitterSite, robots, author, viewport, charset) {
   const codeContainer = document.getElementById('codeContainer');
   const codeToCopy = document.getElementById('codeToCopy');
 
@@ -119,6 +153,30 @@ function showCodeContainer(faviconUrl, title, description, keywords, ogTitle, og
   if (twitterSite) {
     code += `
       <meta name="twitter:site" content="${twitterSite}">
+    `;
+  }
+
+  if (robots) {
+    code += `
+      <meta name="robots" content="${robots}">
+    `;
+  }
+
+  if (author) {
+    code += `
+      <meta name="author" content="${author}">
+    `;
+  }
+
+  if (viewport) {
+    code += `
+      <meta name="viewport" content="${viewport}">
+    `;
+  }
+
+  if (charset) {
+    code += `
+      <meta charset="${charset}">
     `;
   }
 
